@@ -18,9 +18,11 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>Book Name</td>
+          <td>Piece Name</td>
+          <td>Composer</td>
           <td>ISBN Number</td>
-          <td>Book Price</td>
+          <td>Publisher</td>
+          <td>Piece Price</td>
           <td colspan="2">Action</td>
         </tr>
     </thead>
@@ -29,8 +31,11 @@
         <tr>
             <td>{{$book->id}}</td>
             <td>{{$book->book_name}}</td>
+            <td>{{$book->composer}}</td>
             <td>{{$book->isbn_no}}</td>
+            <td>{{$book->publisher}}</td>
             <td>{{$book->book_price}}</td>
+            <td><a href="{{route('books.create')}}" class="btn btn-success">Create</a></td>
             <td><a href="{{ route('books.edit',$book->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('books.destroy', $book->id)}}" method="post">

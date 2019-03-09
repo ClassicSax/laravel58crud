@@ -25,16 +25,24 @@
       <form method="post" action="{{ route('books.store') }}">
           <div class="form-group">
               @csrf
-              <label for="name">Book Name:</label>
-              <input type="text" class="form-control" name="book_name"/>
+              <label for="name">Piece Name:</label>
+              <input type="text" class="form-control" name="book_name">
           </div>
           <div class="form-group">
-              <label for="price">Book ISBN Number :</label>
-              <input type="text" class="form-control" name="isbn_no"/>
+              <label for="author">Composer:</label>
+              <input type="text" class="form-control" name="composer">
           </div>
           <div class="form-group">
-              <label for="quantity">Book Price :</label>
-              <input type="text" class="form-control" name="book_price"/>
+              <label for="price">Piece ISBN Number :</label>
+              <input type="text" class="form-control" name="isbn_no">
+          </div>
+          <div class="form-group">
+              <label for="publisher">Publisher:</label>
+              <input type="text" class="form-control" name="publisher">
+          </div>
+          <div class="form-group">
+              <label for="quantity">Piece Price :</label>
+              <input type="text" class="form-control" name="book_price">
           </div>
           <button type="submit" class="btn btn-primary">Create Book</button>
       </form>

@@ -15,7 +15,7 @@ class BookController extends Controller
     public function index()
     {
       $books = Book::all();
-      return view('index', compact('books'));
+      return view('shares/index', compact('books'));
     }
 
     /**
@@ -25,7 +25,7 @@ class BookController extends Controller
      */
      public function create()
      {
-        return view('create');
+        return view('shares/create');
      }
 
     /**
@@ -38,7 +38,9 @@ class BookController extends Controller
     {
         $validatedData = $request->validate([
           'book_name' => 'required|max:255',
+          'composer' => 'required|max:255',
           'isbn_no' => 'required|alpha_num',
+          'publisher'=> 'required|max:255',
           'book_price' => 'required|numeric'
         ]);
         $book = Book::create($validatedData);
@@ -64,8 +66,10 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+      $book = Book::findOrFail($id);
+      return view('shares/edit', compact('book'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -76,7 +80,15 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $validatedData = $request->validate([
+        'book_name' => 'required|max:255',
+        'composer' => 'required|max:255',
+        'isbn_no' => 'required|alpha_num',
+        'publisher'=> 'required|max:255',
+        'book_price' => 'required|numeric'
+      ]);
+      Book::whereId($id)->update($validatedData);
+      return redirect('/books')->with('success', 'Book is successfully updated');
     }
 
     /**
@@ -87,6 +99,8 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $book = Book::findOrFail($id);
+      $book->delete();
+      return redirect('/books')->with('success', 'Book is successfully deleted');
     }
 }
