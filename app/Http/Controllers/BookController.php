@@ -44,7 +44,7 @@ class BookController extends Controller
           'book_price' => 'required|numeric'
         ]);
         $book = Book::create($validatedData);
-        return redirect('/books')->with('success', 'Book is successfully saved');
+        return redirect('/books')->with('success', 'The piece was successfully saved');
     }
 
     /**
@@ -88,7 +88,7 @@ class BookController extends Controller
         'book_price' => 'required|numeric'
       ]);
       Book::whereId($id)->update($validatedData);
-      return redirect('/books')->with('success', 'Book is successfully updated');
+      return redirect('/books')->with('success', 'The piece was successfully updated');
     }
 
     /**
@@ -101,6 +101,6 @@ class BookController extends Controller
     {
       $book = Book::findOrFail($id);
       $book->delete();
-      return redirect('/books')->with('success', 'Book is successfully deleted');
+      return redirect('/books')->with('success',  'The piece was successfully deleted');
     }
 }

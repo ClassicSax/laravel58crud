@@ -10,7 +10,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Add Book
+    Add Piece
   </div>
   <div class="card-body">
     @if ($errors->any())
