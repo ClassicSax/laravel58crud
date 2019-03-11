@@ -35,7 +35,7 @@
             <td>{{$book->isbn_no}}</td>
             <td>{{$book->publisher}}</td>
             <td>{{$book->book_price}}</td>
-            <td><a href="{{route('books.create')}}" class="btn btn-success">Create</a></td>
+
             <td><a href="{{ route('books.edit',$book->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('books.destroy', $book->id)}}" method="post">
@@ -46,7 +46,9 @@
             </td>
         </tr>
         @endforeach
+        
     </tbody>
   </table>
+  <a href="{{route('books.create')}}" class="btn btn-success">Create</a>
 <div>
 @endsection
